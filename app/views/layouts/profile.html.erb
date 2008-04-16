@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd"> 
+<html>
+<head>
+  	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  	<title>archive | <%= yield(:head_title) || "#{h controller.controller_name.capitalize}: #{controller.action_name}" %></title>
+
+	<%= javascript_include_tag :defaults %>
+	<%=auto_discovery_link_tag(type = :rss, url_options = 
+	{}, tag_options = {})  %>
+	
+  <%= stylesheet_link_tag 'pagination' %>
+
+
+	<%= yield :head %>
+</head>
+<body class="yui-skin-sam">
+	
+	<div style="background-color:red; widht:1000px;color:white; padding: 10px">
+	<%=yield :menu %>
+	</div>
+	
+
+	
+<div id="custom-doc">
+   <%= render :partial => "layouts/header" %>
+ 
+
+    <div id="bd">
+	
+		<div id="yui-main">
+			<div class="yui-b">
+	    	
+	    	<%= yield  %>
+			</div>
+		</div>
+    </div>
+
+    <%= render :partial => "layouts/footer" %>
+
+</div>
+
+
+
+	
+<%= yield :js %>
+
+</body>
+</html>

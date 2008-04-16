@@ -1,0 +1,26 @@
+
+<div id="update">
+	<%= will_paginate @profiles, :update => "update", :params=> {} , :class => "flickr_pagination" %>
+<table>
+  <tr>
+    <th>Name</th>
+<th>Email</th>
+  </tr>
+<% for profile in @profiles %>
+  <tr>
+    <td><%= profile.user_id %></td>
+   <td><%= profile.email %></td>
+ <td><%= link_to ("withdraw", { :action => "test", :profile => profile} ) %></td>
+
+<td><%=link_to_remote "Add to cart",
+   :url => { :action => "withdraw", :id => profile },
+   :after => { :success => "done", :failure => "error" }
+%>
+<%= link_to_remote ("Nudge", :url => { :action => "nudge", :profile => profile },
+:update => "result",  :position => :bottom ) %>
+
+</td> 
+  </tr>
+<% end %>
+</table>
+</div>

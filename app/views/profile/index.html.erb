@@ -1,0 +1,42 @@
+<html>
+<head>
+<%= javascript_include_tag 'routing_navigator' %>
+<%= stylesheet_link_tag 'routing_navigator' %>
+</head>
+<body>
+
+ciao 
+<% content_for :menu do %>
+Menu pilotato dalla apgina nel template <br/>
+<br/>dfads
+<br/>f
+<br/>asdf
+<br/>asd
+<br/>fa
+<br/>sdf
+<% end %>
+<p style="color: green"><%= flash[:notice] %></p>
+
+
+<script language="javascript">
+
+ function done( rsp ){
+   alert("done has been called");
+
+}
+  function error(){
+alert("error");
+}
+</script>
+
+
+	<br/><br/> 
+	<ul id="result"></ul> 
+
+<%= render :partial => "profile_list" %>
+
+
+
+
+</body>
+</html>
